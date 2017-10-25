@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# cipher-me
+App like privnote.com, made with RoR
+>>>>>>> c78b050efa074be58c7bc6945535723e91c82cb9
