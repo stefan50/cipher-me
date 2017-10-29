@@ -7,6 +7,6 @@ class MessagesController < ApplicationController
 		redirect_to @message
 	end
 	def show
-		render plain: params[:id]
+		@message = Message.find(params[:id])
 	end
 end
