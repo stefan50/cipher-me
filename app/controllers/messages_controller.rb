@@ -15,6 +15,6 @@ class MessagesController < ApplicationController
 		file = params[:file]
 		json = File.read(file.path)
 		@obj = JSON.parse(json)
-		redirect_to action: :create
+		redirect_to action: "show"
 	end
 end
