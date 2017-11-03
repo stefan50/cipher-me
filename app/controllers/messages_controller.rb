@@ -1,6 +1,7 @@
 require 'json'
 
 class MessagesController < ApplicationController
+	protect_from_forgery except: :api
 	def new
 	end
 	def create
