@@ -12,8 +12,7 @@ class MessagesController < ApplicationController
 		@message = Message.find(params[:id])
 	end
 	def api
-		json = File.read(params[:file])
-		obj = JSON.parse(json)
+		obj = JSON.parse(params[:file])
 		render json: obj
 	end
 end
