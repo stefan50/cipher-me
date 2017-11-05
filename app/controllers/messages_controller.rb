@@ -1,5 +1,4 @@
 require 'json'
-require 'actionpack-xml_parser'
 
 class MessagesController < ApplicationController
 	protect_from_forgery except: :api
