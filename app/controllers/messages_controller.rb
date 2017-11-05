@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
 	def api
 		json_data = params.permit(:message)
 		@json = JSON.parse(json_data)
-		render plain: @json
+		puts @json
 		#@message = Message.new
 		#@message.text = json_data[:message].to_s
 		#@message.save
