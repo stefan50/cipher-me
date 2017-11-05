@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
 	end
 	def api
 		json_data = params.require(:messages).permit(:message)
-		@obj = JSON.parse(json)
+		@obj = JSON.parse(json_data)
 		render json: @obj
 	end
 end
