@@ -10,9 +10,10 @@ class MessagesController < ApplicationController
 	end
 	def show
 		@message = Message.find(params[:id])
+		@message.destroy
 	end
 	def api
-		json_data = params.require(:messages).permit(:message)
+		json_data = params[:message]
 		@obj = JSON.parse(json_data)
 		render json: @obj
 	end
