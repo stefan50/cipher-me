@@ -17,9 +17,8 @@ class MessagesController < ApplicationController
 	def api
 		respond_to do |format|
 			format.json {json = params.permit(:message)}
-			format.xml {json = Nokogiri::XML.fragments(request.body.read).content}
-		end
-		json = Hash.from_xml(json).to_json
+			format.xml {xml = Nokogiri::XML.fragments(request.body.read).content, xml = Hash.from_xml(json).to_json}
+		end 
 		@message = Message.new
 		@message.text = json
 		@message.save
