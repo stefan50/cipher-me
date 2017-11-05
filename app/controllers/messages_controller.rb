@@ -15,10 +15,10 @@ class MessagesController < ApplicationController
 		@message.destroy
 	end
 	def api
-		@message = Message.new(params.require(:messages).permit(:message))
+		json = params.permit(:message)
+		@message = Message.new(json)
 		@message.save
 		url = "https://cipher-me.herokuapp.com/messages/" + @message.id.to_s
-		render plain: url
 		url_json = {:url => url}  
 		render json: url_json.to_json
 	end
