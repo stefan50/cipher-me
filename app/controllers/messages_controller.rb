@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
 		url_json = {:url => url}  
 		respond_to do |format|		
 			format.json {render json: url_json.to_json}
-			format.xml {render xml: url_json.to_xml}
+			format.xml {render xml: url_json}
 		end
 	end
 end
