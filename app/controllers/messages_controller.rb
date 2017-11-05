@@ -14,7 +14,8 @@ class MessagesController < ApplicationController
 	end
 	def api
 		json_data = params.permit(:message)
-		# @obj = JSON.parse(json_data)
-		render json: json_data
+		json_data = JSON.parse(json_data)
+		@mess = Message.find(json_data[:message])
+		render json: @mess
 	end
 end
