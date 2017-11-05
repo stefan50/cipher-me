@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
 		json_data = params.permit(:message)
 		json_data = JSON.parse(json_data)
 		@message = Message.new
-		@MESSAGE.text = json_data[:message].to_s
+		@message.text = json_data[:message].to_s
 		@message.save
 		@url = "https://cipher-me.herokuapp.com/messages/" + @message.id.to_s
 		url_json = {:url => @url}  
