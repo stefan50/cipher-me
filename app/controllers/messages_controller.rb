@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
 		@message.destroy
 	end
 	def api
-		json_data = params[:text]
+		json_data = params[:message]
 		#@json = JSON.parse(json_data)
 		render json: json_data
 		#@message = Message.new
