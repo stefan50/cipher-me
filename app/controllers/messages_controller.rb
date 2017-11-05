@@ -6,7 +6,9 @@ class MessagesController < ApplicationController
 	end
 	def create
 		@message = Message.new(params.require(:messages).permit(:text))
-		@message.save		
+		@message.save
+		url = "https://cipher-me.herokuapp.com/messages/" + @message.id.to_s
+		render plain: url		
 	end
 	def show
 		@message = Message.find(params[:id])
@@ -15,7 +17,10 @@ class MessagesController < ApplicationController
 	def api
 		json_data = params.permit(:message)
 		json_data = JSON.parse(json_data)
-		@mess = Message.find(json_data[:message])
-		render json: @mess
+		@message = Message.new(json_data[:message])
+		@message.save
+		@url = "https://cipher-me.herokuapp.com/messages/" + @message.id.to_s
+		@url = JSON.stringify("url": url)
+		render json: @url
 	end
 end
