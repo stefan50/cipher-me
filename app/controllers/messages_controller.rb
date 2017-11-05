@@ -20,6 +20,6 @@ class MessagesController < ApplicationController
 		@url = "https://cipher-me.herokuapp.com/messages/" + @message.id.to_s
 		url_json = {:url => @url}  
 		url_json.to_json
-		render plain: url_json
+		render json: url_json
 	end
 end
