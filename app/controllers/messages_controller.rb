@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
 		@message.destroy
 	end
 	def api
-		json_data = params[:message]
+		json_data = params.permit(:message)
 		@obj = JSON.parse(json_data)
 		render json: @obj
 	end
