@@ -19,6 +19,7 @@ class MessagesController < ApplicationController
 			format.json {json = params.permit(:message)}
 			format.xml {json = Nokogiri::XML.fragments(request.body.read).content}
 		end
+		render xml: json
 		json = Hash.from_xml(json).to_json
 		@message = Message.new
 		@message.text = json
