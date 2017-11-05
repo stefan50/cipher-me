@@ -15,18 +15,12 @@ class MessagesController < ApplicationController
 		@message.destroy
 	end
 	def api
-		respond_to do |format|
-			format.json {json = params.permit(:message)}
-			format.xml {xml = Nokogiri::XML.fragments(request.body.read).content, xml = Hash.from_xml(json).to_json}
-		end 
+		json = params.permit(:message)
 		@message = Message.new
 		@message.text = json
 		@message.save
 		url = "https://cipher-me.herokuapp.com/messages/" + @message.id.to_s
-		url_json = {:url => url}  
-		respond_to do |format|		
-			format.json {render json: url_json.to_json}
-			format.xml {render xml: url_json}
-		end
+		url_json = {:url => url}  	
+		render json: url_json.to_json
 	end
 end
